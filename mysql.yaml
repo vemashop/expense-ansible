@@ -6,11 +6,13 @@
   tasks:
    - name: Installing mysqlserver 
      ansible.builtin.dnf:
-      name: "{{ item }}"
+      name: mysql-server
       state: present
-     loops: 
-      - mysql-server
-      - pymysql 
+     
+   - name: Installing pymsql
+     ansible.builtin.pip"
+      name: pymysql
+      state: present    
    - name: Enable and start mysql-server(mysqld)
      ansible.builtin.service:
       enabled: yes
