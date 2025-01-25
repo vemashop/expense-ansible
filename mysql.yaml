@@ -11,7 +11,7 @@
      
    - name: Installing pymsql
      ansible.builtin.pip"
-      name: pymysql
+      name: PyMySQL
       state: present    
    - name: Enable and start mysql-server(mysqld)
      ansible.builtin.service:
