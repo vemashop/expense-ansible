@@ -8,9 +8,9 @@
      ansible.builtin.dnf:
       name: {{ items }}
       state: present
-      loops: 
-       - mysql-server
-       - pymysql 
+    loops: 
+      - mysql-server
+      - pymysql 
    - name: Enable and start mysql-server(mysqld)
      ansible.builtin.service:
       enabled: yes
