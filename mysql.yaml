@@ -6,8 +6,11 @@
   tasks:
    - name: Installing mysql-server 
      ansible.builtin.dnf:
-      name: mysql-server
+      name: {{items}}
       state: present
+      loops: 
+       - mysql -server
+       - pymysql 
    - name: Enable and start mysql-server(mysqld)
      ansible.builtin.service:
       enabled: yes
@@ -21,7 +24,7 @@
       login_host: "172.31.91.241"
      register: mysql_info
      ignore_errors: true  
-       
+
    - name: printing mysql_info
      ansible.builtin.debug:
       msg: {{mysql_info}}   
