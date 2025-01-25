@@ -10,7 +10,7 @@
       state: present
      
    - name: Installing pymsql
-     ansible.builtin.pip"
+     ansible.builtin.pip
       name: PyMySQL
       state: present    
    - name: Enable and start mysql-server(mysqld)
