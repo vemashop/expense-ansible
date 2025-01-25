@@ -4,7 +4,7 @@
   connection: local
   become: yes
   tasks:
-   - name: Installing mysql-server 
+   - name: Installing mysqlserver 
      ansible.builtin.dnf:
       name: "{{ item }}"
       state: present
