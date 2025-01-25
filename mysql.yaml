@@ -27,6 +27,6 @@
 
    - name: printing mysql_info
      ansible.builtin.debug:
-      msg: {{mysql_info}}   
+      msg: "{{mysql_info}} "  
   #  - name: Setting root password
   #    ansible.builtin.command: "mysql_secure_installation --set-root-pass ExpenseApp@1"    
