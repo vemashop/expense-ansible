@@ -1,6 +1,6 @@
 ---
 - name: Backend configuration
-  hosts: localhost
+  hosts: 172.31.28.204
   connection: local
   become: yes
   tasks: 
@@ -61,7 +61,7 @@
       name: all
       login_user: root
       login_password: ExpenseApp@1
-      login_host: 172.31.20.248
+      login_host: 172.31.16.136
       target: /app/schema/backend.sql
 
    - name: Enable and restart

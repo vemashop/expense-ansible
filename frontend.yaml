@@ -1,6 +1,6 @@
 ---
 - name: Configuring Nginx
-  hosts: localhost
+  hosts: 172.31.27.205
   become: yes
   tasks:
     - name: Installing nginx-server
