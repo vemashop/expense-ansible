@@ -47,7 +47,7 @@
      ansible.builtin.dnf:
       name: "{{item}}"
       state: present
-     loops:
+     loop:
       - mysql
       - pymysql
 
