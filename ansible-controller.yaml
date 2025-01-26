@@ -1,6 +1,6 @@
 ---
 - name: Controller node
-  hosts: web
+  hosts: all
   tasks:
    - name: Installing ansible on all hosts
      ansible.builtin.dnf:
