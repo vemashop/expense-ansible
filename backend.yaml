@@ -49,7 +49,7 @@
       state: present
      loop:
       - mysql
-      - pymysql
+      - PyMySQL
 
    - name: import mysql data
      community.mysql.mysql_db:
