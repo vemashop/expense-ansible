@@ -24,5 +24,49 @@
       name: /app
       state: directory  
 
+   - name: Download application code
+     ansible.builtin.get_url: 
+      src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+      dest: /tmp/backend.zip
+
+   - name: Unarchiving code
+     ansible.builtin.unarchive:
+      src: /tmp/backend.zip
+      dest: /app
+
+   - name: Installing dependencies   
+     community.general.npm:
+      path: /app
+   
+   - name: Copying backend.service file
+     ansible.builtin.copy:
+      src: /home/ec2-user/expense-ansible
+      dest: /etc/systemd/system/backend.service
+   
+   - name: Installing mysql client
+     ansible.builtin.pip:
+      name: "{{item}}"
+      state: present
+     loops:
+      - mysql
+      - pymysql
+
+   - name: import mysql data
+     community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: 172.31.20.248
+      target: /app/schema/backend.sql
+
+   - name: Enable and restart
+     ansible.builtin.service:
+      name: backend
+      enabled: yes 
+      state: restarted   
+        
+
+
 
     
