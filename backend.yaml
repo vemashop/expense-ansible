@@ -1,0 +1,9 @@
+---
+- name: Backend configuration
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks: 
+   - name: Disabling and Enabling version:20 of nodejs
+     ansible.builtin.command:
+      cmd: "dnf module disable nodejs -y && dnf module enable nodejs:20 -y"
