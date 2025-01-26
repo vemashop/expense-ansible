@@ -5,5 +5,5 @@
   become: yes
   tasks: 
    - name: Disabling and Enabling version:20 of nodejs
-     ansible.builtin.command:
-      cmd: "dnf module disable nodejs -y && dnf module enable nodejs:20 -y"
+     ansible.builtin.command: "dnf module disable nodejs -y && dnf module enable nodejs:20 -y"
+    
