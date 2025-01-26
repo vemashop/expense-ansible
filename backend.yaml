@@ -22,7 +22,7 @@
    - name: Creating DIR
      ansible.builtin.file:
       name: /app
-      state: dir   
+      state: directory  
 
 
     
