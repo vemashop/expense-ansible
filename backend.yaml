@@ -44,13 +44,16 @@
       dest: /etc/systemd/system/backend.service
    
    - name: Installing mysql client
-     ansible.builtin.package:
+     ansible.builtin.dnf:
       name: "{{item}}"
       state: present
      loop:
       - mysql
-      - pymsql
       
+   - name: Installing python mysql
+     ansible.builtin.pip:
+      name: pymysql
+      state: present  
 
    - name: import mysql data
      community.mysql.mysql_db:
