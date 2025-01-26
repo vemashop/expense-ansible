@@ -44,7 +44,7 @@
       dest: /etc/systemd/system/backend.service
    
    - name: Installing mysql client
-     ansible.builtin.pip:
+     ansible.builtin.dnf:
       name: "{{item}}"
       state: present
      loops:
