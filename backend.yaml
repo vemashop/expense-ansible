@@ -4,6 +4,8 @@
   connection: local
   become: yes
   tasks: 
-   - name: Disabling and Enabling version:20 of nodejs
-     ansible.builtin.command: "dnf module disable nodejs -y && dnf module enable nodejs:20 -y"
+   - name: Disabling of nodejs
+     ansible.builtin.command: "dnf module disable nodejs -y"
+   - name: Enabling version:20 of nodejs
+     ansible.builtin.command: dnf module enable nodejs:20 -y
     
