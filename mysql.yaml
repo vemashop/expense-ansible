@@ -1,6 +1,6 @@
 ---
 - name: mysql server configuration
-  hosts: 172.31.16.136
+  hosts: mysql
   become: yes
   tasks:
    - name: Installing mysqlserver 

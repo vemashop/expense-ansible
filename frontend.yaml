@@ -1,6 +1,6 @@
 ---
 - name: Configuring Nginx
-  hosts: 172.31.27.205
+  hosts: frontend
   become: yes
   tasks:
     - name: Installing nginx-server
