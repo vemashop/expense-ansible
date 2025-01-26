@@ -1,0 +1,8 @@
+---
+- name: Controller node
+  hosts: 34.234.92.246,54.90.141.25,35.172.192.133
+  tasks:
+   - name: Installing ansible on all hosts
+     ansible.builtin.dnf:
+      state: present
+      name: ansible 
