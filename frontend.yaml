@@ -3,43 +3,43 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Installing nginx
+    - name: Installing nginx-server
       ansible.builtin.dnf:
-      name: nginx
-      state: present
+        name: nginx
+        state: present
 
     - name: Enabling and starting nginx
       ansible.builtin.service:
-      name: nginx
-      enabled: yes
-      state: started
+        name: nginx
+        enabled: yes
+        state: started
 
     - name: Deleting directory
       ansible.builtin.file:
-      path: /usr/share/nginx/html/*    
-      state: absent
+        path: /usr/share/nginx/html/*    
+        state: absent
 
     - name: Creating directory
       ansible.builtin.file:
-      path: /usr/share/nginx/html    
-      state: directory 
+        path: /usr/share/nginx/html    
+        state: directory 
 
     - name: Downloading code
       ansible.builtin.get_url: 
-      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest: /tmp/frontend.zip
+        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+        dest: /tmp/frontend.zip
 
     - name: unarchiving code
       ansible.builtin.unarchive:
-      src: /tmp/frontend.zip
-      dest: /usr/share/nginx/html
+        src: /tmp/frontend.zip
+        dest: /usr/share/nginx/html
 
     - name: copying .conf file
       ansible.builtin.copy:
-      src: /home/ec2-user/expense-ansible/expense.conf
-      dest: /etc/nginx/default.d/expense.conf
+        src: /home/ec2-user/expense-ansible/expense.conf
+        dest: /etc/nginx/default.d/expense.conf
 
     - name: Restarting nginx
       ansible.builtin.service:
-      name: nginx
-      state: restarted    
+        name: nginx
+        state: restarted    
